@@ -1,2 +1,2 @@
     こんにちわ
-    Hello World!! byPHPLaravel!!
+    Hello World!! byPHPLaravel!! aiueo
