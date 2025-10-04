@@ -20,7 +20,7 @@
         @endif
     </head>
     @auth
-        @for ($i =0; $i < 10 ; $i++)
+        @for ($i =0; $i < 20 ; $i++)
             {{ $i }}
         @endfor
     @endauth
