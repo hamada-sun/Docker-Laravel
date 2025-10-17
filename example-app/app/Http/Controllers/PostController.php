@@ -17,7 +17,7 @@ class PostController extends Controller
             'body' => $request->body,
         ]);
 
-        return back();
+        return back()->with('message','保存しました');
     }
     //
 }
