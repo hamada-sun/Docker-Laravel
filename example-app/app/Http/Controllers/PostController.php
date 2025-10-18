@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Symfony\Component\HttpKernel\HttpCache\SubRequestHandler;
 
 class PostController extends Controller
 {
@@ -22,8 +23,12 @@ class PostController extends Controller
             'body' => 'required|max:400',
         ]);
 
+        $validated['user_id'] = auth()->id();
+
         $post = Post::create($validated);
-        return back()->with('message','保存しました');
+
+        $request->session()->flash('message', '保存しました');
+        return back();
     }
 
     public function index() {
