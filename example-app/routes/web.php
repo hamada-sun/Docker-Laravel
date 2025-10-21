@@ -35,3 +35,5 @@ Route::get('language/{locale}', function ($locale) {
 Route::get('post/create', [PostController::class, 'create']);
 
 Route::post('post', [PostController::class, 'store'])->name('post.store');
+
+Route::get('post', [PostController::class, 'index']);
