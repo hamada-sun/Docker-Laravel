@@ -49,5 +49,11 @@ class PostController extends Controller
 
         return back();//->with('message', '保存しました');
     }
+
+    public function index(){
+        // $posts = Post::all();
+        $posts = Post::with('user')->get();
+        return view('post.index', compact('posts'));
+    }
     //
 }
