@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
@@ -28,7 +29,8 @@ Route::get('language/{locale}', function ($locale) {
     return redirect()->back();
 });
 
-Route::get('post/create',[PostController::class, 'create']);
+Route::get('post/create',[PostController::class, 'create'])
+->middleware(['Auth','admin']);
 
 Route::post('post', [PostController::class, 'store'])
 ->name('post.store');
