@@ -38,3 +38,5 @@ Route::get('post', [PostController::class, 'index']);
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+Route::get('post/show/{post}', [PostController::class, 'show'])->name('post.show');
