@@ -5,6 +5,11 @@ use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
+
+use App\Livewire\HelloWorld;
+
+Route::get('/hello', HelloWorld::class);
+
 Route::get('/', function () {
     return view('welcome');
 });
