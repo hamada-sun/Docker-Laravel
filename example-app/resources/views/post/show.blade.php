@@ -15,12 +15,20 @@
                 <p class="text-lg font-semibold">
                     {{ $post->title }}
                 </p>
-                <div class="text-right">
+                <div class="flex justify-end space-x-2">
                     <a href="{{ route('post.edit', $post) }}">
                         <button variant="primary" class="cursor-pointer">
                             編集
                         </button>
                     </a>
+
+                    <form method="post" action="{{ route('post.destroy', $post) }}">
+                        @csrf
+                        @method('delete')
+                        <button variant="danger" type="submit" class="cursor-pointer">
+                            削除
+                        </button>
+                    </form>
                 </div>
                 <hr class="w-full">
                 <p class="mt-4 whitespace-pre-line">
