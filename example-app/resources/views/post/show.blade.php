@@ -15,6 +15,13 @@
                 <p class="text-lg font-semibold">
                     {{ $post->title }}
                 </p>
+                <div class="text-right">
+                    <a href="{{ route('post.edit', $post) }}">
+                        <button variant="primary" class="cursor-pointer">
+                            編集
+                        </button>
+                    </a>
+                </div>
                 <hr class="w-full">
                 <p class="mt-4 whitespace-pre-line">
                     {{ $post->body }}
