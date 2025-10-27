@@ -29,10 +29,8 @@ Route::get('language/{locale}', function ($locale) {
     return redirect()->back();
 });
 
-Route::get('post/create',[PostController::class, 'create'])
-->middleware(['Auth','admin']);
-
-Route::post('post', [PostController::class, 'store'])
-->name('post.store');
-
-Route::get('post', [PostController::class, 'index']);
+Route::middleware(['auth', 'admin'])->group(function (){
+    Route::get('post/create',[PostController::class, 'create']);
+    Route::post('post', [PostController::class, 'store'])->name('post.store');
+    Route::get('post', [PostController::class, 'index']);
+});
